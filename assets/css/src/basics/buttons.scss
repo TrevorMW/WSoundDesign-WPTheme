@@ -1,7 +1,7 @@
 @import 'variables';
 
 .btn{
-  font-family:$base; 
+  font-family:$heading; 
   display:inline-block;
   width:auto;
   padding:15px 30px;
@@ -9,66 +9,99 @@
   background-color:$btn-base-color;
   color:$btn-text;
   text-transform: uppercase;
-  letter-spacing:1px;
   font-weight:300;
+  letter-spacing:1px;
   border:0;
   cursor:pointer;
-  transition: all 1s ease;
+  transition: all .3s ease;
 
   &:hover{
     background-color:$btn-hover;
     color:#fff;
   }
 
-  &.btn-primary{
-    background-color:$darkRed;
-    color:$sand;
+  &.btnPrimary{
+    background-color:darken($fog, 10%);
+    color:$white;
 
     &:hover{
-      background-color:lighten($darkRed, 10%);
+      background-color:darken($fog, 20%);
     }
   }
 
-  &.btn-secondary{
-    background-color:$sand;
-    color:darken($sand, 30%);
+  &.btnSecondary{
+    background-color:darken($poppy, 5%);
+    color:$white;
 
     &:hover{
-      background-color:lighten($darkRed, 10%);
+      background-color:goldenrod;
     }
   }
 
-  .hero &{
+  &.btnTertiary{
+    background-color:darken($crimson, 10%);
+    color:$white;
+
+    &:hover{
+      background-color:lighten($crimson, 10%);
+    }
+  }
+
+  &.btnSmall{
+    padding:4px 12px;
+  }
+
+  &.btnIcon{
+    display:inline-flex;
+    align-items: center;
+    padding:15px 30px 15px 20px;
+  }
+
+  &.btnImdb{
+    background-color:$poppy;
+    color:$darkGray;
+    border-radius:4px;
+
+    &:hover{
+      background-color:goldenrod;
+      
+      & a:hover{
+        color:$black;
+      }
+    }
+  }
+
+  .hero-cta-group &{
+    margin-right:14px;
+  }
+
+  @media only screen and (min-width:768px){
+
+  }
+}
+
+
+.ctaGroup {
+  
+  & .btn{
+    margin-bottom:14px;
     width:100%;
-    max-width:75vw;
-    margin-bottom:15px;
-  }
-
-  .ctaBar &{
     display: block;
-    width:100%;
-    
-    &:first-child{
-      margin-bottom:14px;
+    text-align: center;
+
+    &.btnIcon{
+      display: inline-flex;
+      justify-content: center;
     }
   }
 
   @media only screen and (min-width:768px){
 
-    .ctaBar &{
+    & .btn{
+      margin-bottom:0;
+      width:auto;
       display: inline-block;
-      width:auto;
-      margin-bottom:0;
-
-      &:first-child{
-        margin-bottom:0;
-      }
-    }
-    
-    .hero &{
-      width:auto;
-      max-width:100%;
-      margin-bottom:0;
+      margin-right:10px;
     }
   }
 }

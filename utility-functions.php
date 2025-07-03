@@ -167,10 +167,17 @@ function add_style_sheets()
 {
   if (!is_admin()) {
     wp_enqueue_style('reset', get_template_directory_uri() . '/style.css', 'screen');
-    wp_enqueue_style('fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 'screen');
+    wp_enqueue_style('fontawesome', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,200,0,0', 'screen');
     wp_enqueue_style(
-      'googleFonts',
-      '//fonts.googleapis.com/css?family=Italiana|Maven Pro:400,700&ver=1.0.0',
+      'opensans',
+      'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300,400,500,600,700&display=swap',
+      'screen'
+    );
+
+    wp_enqueue_style(
+      'montserrat',
+      'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap',
+      [], null,
       'screen'
     );
 
@@ -220,8 +227,6 @@ function add_javascript()
       'baseUrl' => $app_base,
       'deps'    => array($app_base . '/bundle.core.min.js')
     ));
-
-    
   }
 }
 add_action('wp_enqueue_scripts', 'add_javascript');
@@ -320,6 +325,8 @@ add_image_size('tablet', 1024, 1024, true);
 add_image_size('mobile', 768, 768, true);
 add_image_size('phone', 480, 480, true);
 add_image_size('mini-thumbnail', 50, 50, true);
+add_image_size('subhero', 2000, 400, true);
+
 
 
 // ADDS SUPPORT FOR CUSTOM EDITOR STYLES THAT LET CLIENTS USE THE WYSIWYG EDITOR BETTER. UNCOMMENT IF YOU NEED THEM.

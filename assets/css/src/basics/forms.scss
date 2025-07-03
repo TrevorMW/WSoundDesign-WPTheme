@@ -8,9 +8,20 @@ fieldset{
     border:0;
     padding:0;
     margin:0;
+    background-color:transparent;
+    border:0;
 
     & legend{
         display: none;
+    }
+
+    .visual-form-builder &{
+        border:0;
+        padding:0;
+        margin:0;
+        background-color:transparent;
+        border:0;
+    
     }
 }
 
@@ -25,6 +36,12 @@ label{
 
     & mark{
         color:$btn-hover;
+    }
+
+    .vfb-item &:first-child{
+        color:$deepOcean;
+        font-size:.875rem;
+        text-transform: uppercase;
     }
 }
 
@@ -106,6 +123,14 @@ textarea{
     &:focus{
         border-color:$darkRed;
     }
+
+    &.vfb-error{
+        border-color:$error;
+    }
+}
+
+textarea{
+    min-height:150px;
 }
 
 
@@ -118,10 +143,24 @@ textarea{
     padding:0;
 }
 
+.vfb-error{
+    color:$error;
+    font-size:.625rem;
+    line-height:1;
+}
+
+.vfb-required-asterisk{
+    color:$error;
+}
+
 .vfb-item{
     margin-bottom:21px;
 }
 
 .vfb-item-submit{
     text-align:right;
+}
+
+#form_success{
+    color:$success;
 }

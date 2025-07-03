@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Template - Generic
+ * Template Name: Template - Services Page
  * Description: Generic Sub Page Template
  *
  * @package WordPress
@@ -20,8 +20,22 @@ get_header(); the_post(); ?>
   <section class="page" role="article">
     <div class="page-content">
       <?php the_content(); ?>
+      <?php $services = get_field('service_blocks', $post->ID);
+      
+      if ($services) { 
+        echo '<ul>'; 
+        foreach($services as $service) { ?>
+
+          <li>
+            <h5><?php echo $service['service_name']; ?></h5>
+            <p><?php echo $service['service_description'] ?></p>
+          </li>
+    
+        <?php } 
+        echo '</ul>';
+      }?>
     </div>
   </section>
 </div>
 
-<?php  get_footer(); ?>
+<?php get_sidebar(); get_footer(); ?>

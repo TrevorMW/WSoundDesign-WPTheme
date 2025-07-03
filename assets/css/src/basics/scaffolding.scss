@@ -1,192 +1,300 @@
-@import 'variables';
+@import "variables";
+
+:root {
+  --s: 18px; /* control the size*/
+  --c1: #000000;
+  --c2: #111111;
+  --_g: #0000 8%, var(--c1) 0 17%, #0000 0 58%;
+}
+
+html {
+  font-size: 16px;
+  margin-top:0 !important;
+}
+
+body {
+  font-size: 1rem;
+  margin-top: 0;
+  font-family: $base;
+
+  &.logged-in {
+    margin-top: -32px;
+  }
+}
 
 .wrap,
 .wrapper,
-.container{
+.container {
   display: block;
-  width:100%;
-  clear:both;
+  width: 100%;
+  clear: both;
 }
 
-.wrapper{
+.wrapper {
   position: relative;
-  padding:0 0 50px 0;
+  padding: 50px 0;
 
-  &.sand{
-    background-color:$sand;
-    color:$darkGray;
-    padding:50px;
+  &.noPadTop {
+    padding-top: 0;
   }
 
-  &.spruce{
-    background-color:$spruce;
-    color:lighten($sand, 10%);
-    padding:50px;
+  &.noPadBottom {
+    padding-top: 0;
   }
 
-  &.darkRed{
-    padding:50px;
-    background-color:$darkRed;
-    color:lighten($sand, 10%);
+  &.sand {
+    background-color: $sand;
+    color: $darkGray;
   }
 
-  &.darkGray{
-    padding:50px;
-    background-color:$darkGray;
-    color:lighten($sand, 10%);
+  &.fog {
+    background-color: $fog;
+    color: $white;
   }
 
-  &.headerBar{
-    padding:10px 0 14px 0;
-    border-bottom:1px solid #ddd;
+  &.deepOcean {
+    background-color: $deepOcean;
+    color: $white;
   }
 
-  &.ctaBar{
-    padding:28px 21px 35px 21px;
+  &.darkRed {
+    background-color: $darkRed;
+    color: $white;
   }
 
-  &.mainContent{
-    padding:50px 0;
+  &.darkGray {
+    background-color: $darkGray;
+    color: $white;
   }
 
-  &.footer{
-    border-top: 1px solid darken($sand, 18%);
-    color: darken($sand, 28%);
+  &.headerBar {
+    color: $white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
   }
 
-  &.subFooter{
-    font-size:0.723rem;
-    padding:21px;
-    color: $gray;
-    border-top: 1px solid $gray;
+  &.ctaBar {
+    padding: 28px 21px 35px 21px;
   }
 
-  @media only screen and (min-width:768px){
+  &.footer {
+    font-size: 0.723rem;
+    padding: 28px;
+    color: $white;
+    border-top: 2px solid darken($fog, 20%);
+  }
 
+  @media only screen and (min-width: 768px) {
     &.sand,
     &.spruce,
     &.darkGray,
-    &.darkRed{
+    &.darkRed {
       padding: 50px 0;
     }
 
     &.ctaBar,
-    &.footer{
-      padding:21px 0;
+    &.footer {
+      padding: 21px 0;
     }
 
-    &.subFooter{
-      padding:8px 0;
+    &.subFooter {
+      padding: 8px 0;
     }
   }
 }
 
-.container{
+.container {
   margin: 0 auto;
+  padding: 0 30px;
 
-  &.small{
-    max-width:1000px;
+  &.small {
+    max-width: 1000px;
   }
 
-  &.flexed{
-    display: block;
-  }
-
-  .mainContent &{
-    position: relative;
-    margin-top:-120px;
-    z-index:2;
-    background-color:#fff;
-    min-height:200px;
+  &.flexed {
     display: flex;
-    padding:50px;
-    -webkit-box-shadow: 0px -20px 26px -19px rgba(0,0,0,0.21); 
-    box-shadow: 0px -20px 26px -19px rgba(0,0,0,0.21);
-  }
-  
-  @media only screen and (min-width:768px){
+    flex-direction: column;
 
-    &.flexed{
-      display: flex;
-      align-items: center;
-  
-      & > div{
-        flex:1;
-        width:100%;
-      }
-    }
-
-    .headerBar & > div:first-child{
-      flex: 0 0 190px;
+    &.spaceBetween {
+      justify-content: space-between;
     }
   }
 
-  @media only screen and (min-width:1024px){
-    
-  }
-
-  @media only screen and (min-width:1280px){
-    max-width:1100px;
-  }
-}
-
-
-main{
-  min-height:300px;
-}
-
-.primary{
-  flex:1;
-}
-
-.secondary{
-  flex:0 0 300px;
-}
-
-.ctaBar{
-
-  &.topCtaBar > div{
+  &.centered {
     text-align: center;
   }
 
-  &.middleCtaBar{
-
-    & div {
-      margin-bottom:21px;
-      text-align:center;
-    }
+  .mainContent & {
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    min-height: 200px;
+    padding:  50px 30px;
+    -webkit-box-shadow: 0px -20px 26px -19px rgba(0, 0, 0, 0.21);
+    box-shadow: 0px -20px 26px -19px rgba(0, 0, 0, 0.21);
   }
 
-  @media only screen and (min-width:768px){
+  .headerBar &{
+    display: flex;
+    justify-content: flex-start;
+    gap:21px;
+    align-items: center;
+    padding:0px 30px;
+  }
 
-    &.topCtaBar > div{
-      text-align: center;
-    }
-  
-    &.middleCtaBar{
-  
-      & div {
-        margin-bottom:0;
-        text-align: left;
-  
-        &:last-child{
-          text-align:right;
-        }
+  @media only screen and (min-width: 768px) {
+    padding: 0;
+
+    &.flexed {
+      align-items: center;
+      flex-direction: row;
+
+      & > div {
+        flex: 1;
+        width: 100%;
       }
-    }    
+    }
+
+    .headerBar & > div:first-child {
+      flex: 0 0 190px;
+    }
+
+    .headerBar &{
+      padding:0 30px;
+      justify-content: space-between;
+    }
+
+    .mainContent & {
+      margin-top: -50px;
+      z-index: 2;
+      min-height: 200px;
+      padding: 50px;
+    }
   }
 
+  @media only screen and (min-width: 1024px) {
+    max-width: 1000px;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    max-width: 1200px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    max-width: 1400px;
+  }
 }
 
-.servicesList{
+header {
+}
 
-  & svg{
-    fill:$darkRed;
-    height:120px;
-    width:120px;
+main {
+  min-height: 300px;
+}
+
+.primary {
+  flex: 1;
+}
+
+.secondary {
+  flex: 0 0 300px;
+}
+
+.page-content {
+  display: block;
+  width: 100%;
+}
+
+.headerBar {
+  padding: 20px 0 25px;
+  background: transparent;
+  border-top: 4px solid $fog;
+  transition: background-color 0.3s ease;
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.subHero {
+  color: $white;
+  background-color: $darkGray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:130px 0 50px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, #0000 20.5%, var(--c1) 0 29.5%, #0000 0) 0 calc(var(--s) / 4),
+    linear-gradient(45deg, var(--_g)) calc(var(--s) / 2) 0,
+    linear-gradient(135deg, var(--_g), var(--c1) 0 67%, #0000 0),
+    linear-gradient(45deg, var(--_g), var(--c1) 0 67%, #0000 0 83%, var(--c1) 0 92%, #0000 0),
+    var(--c2);
+  background-size: var(--s) var(--s);
+
+  & .subHeroTitle {
+    position: relative;
+    z-index: 3;
   }
 
-  & .card{
-    cursor: pointer;
+  & .subHeroOverlay {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(0deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+
+  & .subHeroImage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    & img {
+      height: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    padding:180px 0 125px;
+
+  }
+}
+
+.projects {
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  gap: 21px;
+
+  & .project {
+    height: auto;
+    overflow: hidden;
+    border: 1px solid black;
+
+  }
+
+  @media only screen and (min-width: 768px) {
+    flex-direction:row;
+
+    & .project{
+      flex: 0 0 31%;
+
+      & img {
+        height: auto;
+        width: 100%;
+        min-width: 470px;
+        min-height: 350px;
+      }
+    }
+  }
+
+  .featuredWorkItems &{
+    
   }
 }

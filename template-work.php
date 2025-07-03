@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Template - Generic
+ * Template Name: Template - Work
  * Description: Generic Sub Page Template
  *
  * @package WordPress
@@ -16,12 +16,13 @@ get_header(); the_post(); ?>
   <div class="subHeroImage"><?php echo SubHero::getImageHtml($post->ID); ?></div>
 </div>
 
-<div class="container small">
+<div class="container">
   <section class="page" role="article">
     <div class="page-content">
       <?php the_content(); ?>
+      <?php echo Work::getWorkSection($post->ID) ?>
     </div>
   </section>
 </div>
 
-<?php  get_footer(); ?>
+<?php get_sidebar(); get_footer(); ?>

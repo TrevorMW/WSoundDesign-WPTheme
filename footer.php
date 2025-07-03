@@ -5,57 +5,34 @@
  */
 ?>
 
-<?php if(is_front_page()){ ?> 
-</main>
-<?php } else { ?> 
-    </div>
-</main>
+<?php if (is_front_page()) { ?>
+	</main>
+<?php } else { ?>
+	</main>
 <?php } ?>
 
 <footer>
-	<div class="wrapper sand footer">
-		<div class="container flexed">
-			<div>
-				<nav class="footerNav">
-					<ul>
-						<?php wp_nav_menu(array(
-							'menu'           => 'footer',
-							'theme_location' => 'footer',
-							'container'      => false,
-							'items_wrap'     => '%3$s',
-							'depth'          => 0
-						)) ?>
-					</ul>
-				</nav>
-			</div>
-			<div class="">
-				
-			</div>
-			<div class="">
-				
-			</div>
-			<div class="">
-				<div>
-					<a href="YOUR FACEBOOK LINK" title="Facebook" target="_blank" rel="noopener">
-					<span class="social"><i class="fa fa-facebook"></i></span></a>
-
-					<a href="YOUR TWITTER LINK" title="Twitter" target="_blank" rel="noopener">
-					<span class="social"><i class="fa fa-twitter"></i></span></a>
-
-					<a href="YOUR PINTEREST LINK" title="Pinterest" target="_blank" rel="noopener">
-					<span class="social"><i class="fa fa-pinterest"></i></span></a>
-
-					<a href="YOUR INSTAGRAM LINK" title="Instagram" target="_blank" rel="noopener">
-					<span class="social"><i class="fa fa-instagram"></i></span></a>
-				</div>
+	<div class="wrapper sand globalCTA">
+		<div class="container centered small">
+			<h5>W Sound Design offers expert on-location sound recording,<br /> sound mixing, &amp; audio
+				post-production services<br /> tailored to the needs of filmmakers, producers, &amp; content creators.
+			</h5>
+			<br />
+			<br />
+			<div class="ctaGroup">
+				<a class="btn btnIcon " href="tel:"><span class="material-symbols-rounded">call</span>&nbsp; Give Me a
+					Call</a>
+				&nbsp;&nbsp;&nbsp;
+				<a class="btn btnIcon btnSecondary" href="/contact"><span
+						class="material-symbols-rounded">mail</span>&nbsp; Email Me</a>
 			</div>
 		</div>
 	</div>
-	<div class="wrapper subFooter">
-		<div class="container flexed">
-			<div class="alignLeft">
+	<div class="wrapper deepOcean footer">
+		<div class="container flexed spaceBetween">
+			<div class="">
 				<nav class="footerUtility">
-					<ul>
+					<!-- <ul>
 						<li><a href="YOUR FACEBOOK LINK" title="Facebook" target="_blank" rel="noopener">
 							<span class="social"><i class="fa fa-facebook"></i></span></a></li>
 
@@ -67,48 +44,29 @@
 
 						<li><a href="YOUR INSTAGRAM LINK" title="Instagram" target="_blank" rel="noopener">
 							<span class="social"><i class="fa fa-instagram"></i></span></a></li>
-					</ul>
+					</ul> -->
 					<ul>
-						
-						
 						<?php wp_nav_menu(array(
-							'menu'           => 'footer-utility',
+							'menu' => 'footer-utility',
 							'theme_location' => 'footer-utility',
-							'container'      => false,
-							'items_wrap'     => '%3$s',
-							'depth'          => 0
+							'container' => false,
+							'items_wrap' => '%3$s',
+							'depth' => 0
 						)) ?>
 					</ul>
 				</nav>
 			</div>
-			<div>
+			<div class="alignRight">
 				<p>
-					Copyright &copy; 2021 Chalkline
-				</p>	
+					Copyright &copy; <?php echo date("Y") ?> Wagner Sound Design
+				</p>
 			</div>
 		</div>
 	</div>
 </footer>
 
-<div data-overlay>
-	<div><i class="fa fa-spin fa-spinner fa-pulse fa-fw"></i></div>
-</div>
-
-<div data-popup="mainPopup">
-	<a data-destroy><i class="fa fa-fw fa-times-circle"></i></a>
-	<div class="table-cell">
-		<div class="popup-body">
-			<header class="popup-header">
-				<h3>Hello World</h3>
-			</header>
-			<div class="popup-content">
-				<p>content goes here</p>
-			</div>
-		</div>
-	</div>
-</div>
-
 <?php wp_footer(); ?>
 
 </body>
+
 </html>
