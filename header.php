@@ -8,6 +8,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<title><?php echo site_global_description(); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
