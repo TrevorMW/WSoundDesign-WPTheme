@@ -114,7 +114,7 @@ body {
     &.footer {
       padding: 21px 0;
       text-align:left;
-      
+
     }
 
     &.subFooter {
@@ -445,4 +445,14 @@ main {
       line-height:2.25rem;
     }
   }
+}
+
+
+.copyright{
+  text-align: center;
+
+  @media only screen and (min-width: 768px) {
+    text-align: right;
+  }
+
 }
