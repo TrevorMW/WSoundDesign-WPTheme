@@ -53,7 +53,7 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="alignRight">
+			<div class="">
 				<p>
 					Copyright &copy; <?php echo date("Y") ?> Wagner Sound Design
 				</p>

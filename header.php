@@ -8,7 +8,13 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	
+	<?php // If the site is using HTTPS, upgrade insecure connections to avoid security policy blocks. But DONT do this on .local
+
+	if(wp_is_using_https()){ ?> 
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<?php } ?>
+
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<title><?php echo site_global_description(); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

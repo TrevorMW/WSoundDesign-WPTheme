@@ -447,6 +447,7 @@ nav.footerUtility li:first-child {
 @media only screen and (min-width: 768px) {
   nav.footerUtility {
     display: block;
+    text-align: left;
   }
 }
 nav.mainNav {
