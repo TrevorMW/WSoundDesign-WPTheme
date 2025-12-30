@@ -22,4 +22,4 @@ get_header(); the_post(); ?>
   </section>
 </div>
 
-<?php get_sidebar(); get_footer(); ?>
+<?php get_footer(); ?>

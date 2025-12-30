@@ -14,11 +14,22 @@
   text-align: left;
 }
 
-.alignRight{
+.alignRight,
+.alignright{
   text-align: right;
+  float:right;
+  margin: 0 0 21px 21px;
+  width:auto;
 }
 
 .alignCenter{
   text-align: center;
   margin: 0 auto;
+}
+
+.alignLeft,
+.alignleft{
+  float:left;
+  width:auto;
+  margin: 0 21px 21px 0;
 }

@@ -8,8 +8,9 @@
     display: block;
     color: inherit;
 
+
     &.heroHomepage {
-        height: calc(100vh - 100px);
+        height: calc(90vh - 100px);
         width: 100vw;
         overflow: hidden;
     }
@@ -39,6 +40,12 @@
     }
 
     @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+
+        &.heroHomepage {
+            height: calc(75vh - 100px);
+        }
 
         & picture {
             position: static;
@@ -69,6 +76,7 @@
     padding: 30px 32px;
     z-index: 2;
     margin: 0 auto;
+    background-color:rgba(0,0,0,0.45);
 
     .heroBottom &{
         align-items:flex-end;
@@ -96,8 +104,9 @@
 // Utilities to handle alignment within body element
 .heroBody {
     color:$white;
-    max-width: 1000px;
+    max-width: 1340px;
     margin: 0 auto;
     display: block;
     width:100%;
+    
 }

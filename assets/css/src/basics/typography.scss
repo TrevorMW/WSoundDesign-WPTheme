@@ -48,6 +48,8 @@ p{
     font-weight:300;
     line-height:1.4;
     color:$white;
+    text-shadow:2px 2px 20px rgba(0,0,0,0.95)
+
   }
 
   .page-content &{
@@ -96,13 +98,27 @@ h1{
     font-size:1.5rem;
     line-height:1.2;
     margin-bottom:14px;
-    color:lighten($poppy, 0%)
+    color:lighten($poppy, 0%);
+    text-shadow:2px 2px 20px rgba(0,0,0,0.95)
+
+  }
+
+  .logo &,
+  .mobileNavLogo &{
+    font-size:2rem;
+    font-family:$special;
+    line-height:1;
+  }
+
+  .mobileNavLogo &{
+    color:$darkGray;
   }
 
   @media only screen and (min-width:768px){
     
     &.heroHeading{
-      font-size:2.8rem;
+      font-size:2rem;
+      line-height:2.5rem;
     }
   }
 }

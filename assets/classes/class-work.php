@@ -1,12 +1,15 @@
-<?php 
+<?php
 
-class Work {
+class Work
+{
 
-    public function __construct(){
+    public function __construct()
+    {
 
     }
 
-    public static function getWorkSection($id) {
+    public static function getWorkSection($id)
+    {
 
         $html = '';
 
@@ -21,25 +24,29 @@ class Work {
 
         $projects = get_field('projects', $id);
 
-        if($projects){
+        if ($projects) {
 
             $html .= '<section class="projects">';
 
-            foreach($projects as $project) {
+            foreach ($projects as $project) {
 
                 $project = new Project($project);
 
-                $thumbnail = $project->getThumbnail();
-                
-                if ($thumbnail) {
-                    $html .= '<article class="project"><a href="' . get_permalink($project->post->ID) . '">';
+                $mobile = $project->mobileImage;
+                $desktop = $project->desktopImage;
 
-                    $html .= '<picture>';
-                    $html .= '<img src="' . $thumbnail['url'] . '" alt="' . $thumbnail['alt'] . '" title="' . $thumbnail['title'] . '" width="' . $thumbnail['width'] . '" height="' . $thumbnail['height'] . '">';
-                    $html .= '</picture>';
-                    $html .= '</a></article>';
-                }
-                
+                $html .= '<article class="project"><a href="' . get_permalink($project->post->ID) . '">';
+
+                $html .= '<picture>';
+                $html .= '<source srcset="' . $desktop['url'] . '" media="screen and (min-width:768px)" />';
+                $html .= '<img src="' . $mobile['url'] . '" alt="' . $mobile['alt'] . '" title="' . $mobile['title'] . '" width="' . $mobile['width'] . '" height="' . $mobile['height'] . '">';
+                $html .= '</picture>';
+                $html .= '<div class="projectOverlay">
+                                <h3>' . $project->post->post_title . '</h3>
+                              </div>';
+                $html .= '</a>';
+
+                $html .= '</article>';
             };
 
             $html .= '</section>';
@@ -48,33 +55,43 @@ class Work {
         return $html;
     }
 
-    public static function buildWorkItem($project){
+    public static function buildWorkItem($project)
+    {
 
         $html = '';
 
-        if($project instanceof Project){
-            $thumbnail = $project->getThumbnail();
-                $html .= '<article class="project"><a href="' . get_permalink($project->post->ID) . '">';
+        if ($project instanceof Project) {
+            $mobile = $project->mobileImage;
+            $desktop = $project->desktopImage;
 
-                $html .= '<picture>';
-                $html .= '<img src="' . $thumbnail['url'] . '" alt="' . $thumbnail['alt'] . '" title="' . $thumbnail['title'] . '" width="' . $thumbnail['width'] . '" height="' . $thumbnail['height'] . '">';
-                $html .= '</picture>';
-                $html .= '</a></article>';
+            $html .= '<article class="project"><a href="' . get_permalink($project->post->ID) . '">';
+
+            $html .= '<picture>';
+            $html .= '<source srcset="' . $desktop['url'] . '" media="screen and (min-width:768px)" />';
+            $html .= '<img src="' . $mobile['url'] . '" alt="' . $mobile['alt'] . '" title="' . $mobile['title'] . '" width="' . $mobile['width'] . '" height="' . $mobile['height'] . '">';
+            $html .= '</picture>';
+            $html .= '<div class="projectOverlay">
+                        <h3>' . $project->post->post_title . '</h3>
+                      </div>';
+            $html .= '</a>';
+
+            $html .= '</article>';
         }
 
         return $html;
     }
 
-    public static function getFeaturedWorkItems($id){
+    public static function getFeaturedWorkItems($id)
+    {
 
         $html = '';
         $projects = get_field('featured_projects', $id);
 
-        if($projects){
+        if ($projects) {
 
             $html .= '<section class="projects">';
 
-            foreach($projects as $project) {
+            foreach ($projects as $project) {
                 $project = new Project($project);
                 $html .= Work::buildWorkItem($project);
             };

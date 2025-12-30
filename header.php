@@ -19,15 +19,11 @@
 
 	<div class="wrapper headerBar" id="header">
 		<header class="container">
-			<div class="mobileMenuTrigger">
-				<a href="" data-mobile-nav-trigger><span class="material-symbols-rounded">reorder</span></a>
-			</div>
 			<div class="logo">
-				LOGO HERE
-				<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri() ?>" alt="" /></a>
-				<h1 class="screenReader">W Sound Design</h1>
+				<h1><a href="<?php echo home_url(); ?>">W Sound Design</a></h1>
+				<!-- <img src="<?php echo get_template_directory_uri() ?>" alt="" /> -->
 			</div>
-			<div class="alignRight">
+			<div class="">
 				<nav class="mainNav">
 					<ul>
 						<?php wp_nav_menu(array(
@@ -40,11 +36,14 @@
 					</ul>
 				</nav>
 			</div>
+			<div class="mobileMenuTrigger">
+				<a href="" data-mobile-nav-trigger><span class="material-symbols-rounded">reorder</span></a>
+			</div>
 		</header>
 	</div>
 
 	<?php if (is_front_page()) { ?>
-		<main class="wrapper noPadTop">
+		<main class="wrapper noPadTop noPadBottom">
 		<?php } else { ?>
 			<main class="wrapper mainContent noPadTop">
 			<?php }

@@ -170,7 +170,7 @@ function add_style_sheets()
     wp_enqueue_style('fontawesome', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,200,0,0', 'screen');
     wp_enqueue_style(
       'opensans',
-      'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300,400,500,600,700&display=swap',
+      'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300,400,500,600,700&family=Permanent+Marker&display=swap',
       'screen'
     );
 
@@ -326,6 +326,8 @@ add_image_size('mobile', 768, 768, true);
 add_image_size('phone', 480, 480, true);
 add_image_size('mini-thumbnail', 50, 50, true);
 add_image_size('subhero', 2000, 400, true);
+add_image_size('project-desktop', 1280, 720, true);
+add_image_size('project-mobile', 768, 1080, true);
 
 
 

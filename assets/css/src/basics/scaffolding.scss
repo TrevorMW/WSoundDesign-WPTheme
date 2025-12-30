@@ -9,7 +9,7 @@
 
 html {
   font-size: 16px;
-  margin-top:0 !important;
+  margin-top: 0 !important;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
   }
 
   &.noPadBottom {
-    padding-top: 0;
+    padding-bottom: 0;
   }
 
   &.sand {
@@ -81,9 +81,25 @@ body {
 
   &.footer {
     font-size: 0.723rem;
-    padding: 28px;
+    padding: 14px;
     color: $white;
     border-top: 2px solid darken($fog, 20%);
+    text-align:center;
+  }
+
+  &.mainContent {
+    padding-bottom: 0;
+  }
+
+  &.homepageSubhero{
+    padding:50px 0;
+    border-top:4px solid $deepOcean;
+  }
+
+  &.mainCta{
+    // border-top:4px solid #222;
+    // border-bottom:4px solid #222;
+
   }
 
   @media only screen and (min-width: 768px) {
@@ -97,6 +113,7 @@ body {
     &.ctaBar,
     &.footer {
       padding: 21px 0;
+      text-align:left;
     }
 
     &.subFooter {
@@ -113,6 +130,10 @@ body {
     max-width: 1000px;
   }
 
+  &.xsmall {
+    max-width: 800px;
+  }
+
   &.flexed {
     display: flex;
     flex-direction: column;
@@ -126,22 +147,22 @@ body {
     text-align: center;
   }
 
-  .mainContent & {
+  .mainContent > & {
     position: relative;
     z-index: 2;
     background-color: #fff;
     min-height: 200px;
-    padding:  50px 30px;
+    padding: 50px 30px;
     -webkit-box-shadow: 0px -20px 26px -19px rgba(0, 0, 0, 0.21);
     box-shadow: 0px -20px 26px -19px rgba(0, 0, 0, 0.21);
   }
 
-  .headerBar &{
+  .headerBar & {
     display: flex;
-    justify-content: flex-start;
-    gap:21px;
+    justify-content:space-between;
+    gap: 21px;
     align-items: center;
-    padding:0px 30px;
+    padding: 0px 30px;
   }
 
   @media only screen and (min-width: 768px) {
@@ -158,12 +179,11 @@ body {
     }
 
     .headerBar & > div:first-child {
-      flex: 0 0 190px;
+      flex: 0 0 270px;
     }
 
-    .headerBar &{
-      padding:0 30px;
-      justify-content: space-between;
+    .headerBar & {
+      padding: 0;
     }
 
     .mainContent & {
@@ -183,11 +203,64 @@ body {
   }
 
   @media only screen and (min-width: 1440px) {
-    max-width: 1400px;
+    max-width: 1340px;
+  }
+}
+
+section{
+
+  .mainCta &{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    & div{
+      width:100%;
+      flex: 1 0 auto;
+      border-left:0;
+      text-align: center;
+      padding-top:50px;
+      
+      &:first-child{
+        padding-bottom:50px;
+        padding-top:0;
+        border-bottom:1px solid black;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+
+    .mainCta & {
+      flex-direction: row;
+      gap:0;
+  
+      & div{
+        flex: 0 0 45%;
+        border-left:1px solid #111;
+        text-align: center;
+        padding:0;
+        padding-left:50px;
+  
+        &:first-child{
+          border:0;
+          padding:0;
+          padding-left:0;
+          padding-right:50px;
+        }
+      }
+    }
   }
 }
 
 header {
+
+  section &{
+    text-align: center;
+    margin-bottom:21px;
+
+  }
 }
 
 main {
@@ -224,7 +297,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:130px 0 50px;
+  padding: 130px 0 50px;
   position: relative;
   overflow: hidden;
   background:
@@ -261,40 +334,114 @@ main {
   }
 
   @media only screen and (min-width: 768px) {
-    padding:180px 0 125px;
-
+    padding: 180px 0 125px;
   }
 }
 
 .projects {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 21px;
+
+  & a{
+    position: relative;
+
+  }
 
   & .project {
     height: auto;
     overflow: hidden;
-    border: 1px solid black;
+    cursor: pointer;
 
-  }
+    & .projectOverlay{
+      position: absolute;
+      left:0;
+      top:0;
+      height:100%;
+      width:100%;
+      padding:30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color:$white;
+      background-color:rgba(0,0,0,0.9);
+      opacity:0;
+      text-align: center;
+      font-size:1.2rem;
+      line-height:1.5rem;
+      transition: opacity .4s ease;
 
-  @media only screen and (min-width: 768px) {
-    flex-direction:row;
-
-    & .project{
-      flex: 0 0 31%;
-
-      & img {
-        height: auto;
-        width: 100%;
-        min-width: 470px;
-        min-height: 350px;
+      &:hover{
+        opacity:1;
       }
     }
   }
 
-  .featuredWorkItems &{
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap:1% 1;
+
+    & .project {
+      flex: 0 0 49%;
+
+      & img {
+        height: auto;
+        width: 100%;
+      }
+
+      & .projectOverlay{
+        font-size:1.4rem;
+        line-height:1.6rem;
+      }
+    }
+  }
+}
+
+.featuredWorkItems{
+  
+  & .projects{
+    display: flex;
+    flex-direction: column;
+    gap:21px;
+  }
+
+  & .project {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  & .projectOverlay{    
+    font-size:1.4rem;
+    line-height:1.7rem;
+  }
+
+  @media only screen and (min-width: 768px) {
     
+    & .projects{
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: top;
+      flex-wrap: wrap;
+      gap:0;
+    }
+  
+    & .project {
+      flex: 0 0 50%;
+
+      & img {
+        height: auto;
+        width: 103%;
+        min-height:100%;
+      }
+    }
+
+    & .projectOverlay{    
+      font-size:1.7rem;
+      line-height:2.25rem;
+    }
   }
 }
